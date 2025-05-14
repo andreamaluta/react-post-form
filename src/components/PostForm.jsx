@@ -3,6 +3,15 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const PostForm = () => {
+
+    const [formData, setFormData] = useState({
+        author: "",
+        title: "",
+        body: "",
+        updates: false
+    })
+
+
     return (
         <div>
             <div className="container mt-4">
