@@ -8,21 +8,24 @@ const PostForm = () => {
         author: "",
         title: "",
         body: "",
-        update: false
+        public: false
     })
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target
-
+        const { name, value, type, checked } = e.target;
+        console.log("elemento ", e.target)
+        console.log("type", e.target.type)
+        console.log("value", e.target.value)
+        console.log("checked", e.target.checked)
         setFormData({
             ...formData,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: (type === 'checkbox') ? checked : value
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(formData)
         axios.post('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts', formData).then(res => {
             console.log(res.data);
             alert('richiesta inviata con successo');
@@ -46,8 +49,8 @@ const PostForm = () => {
                         </div>
                         <div className="col-12">
                             <div>
-                                <input type="checkbox" id='update' name='update' checked={formData.update} onChange={handleChange} className='form-check-input mx-2' />
-                                <label htmlFor="update" className="form-check-label">Seleziona se vuoi che sia pubblico</label>
+                                <input type="checkbox" id='public' name='public' checked={formData.public} onChange={handleChange} className='form-check-input mx-2' />
+                                <label htmlFor="public" className="form-check-label">Seleziona se vuoi che sia pubblico</label>
                             </div>
                         </div>
                         <div className="col-12">
