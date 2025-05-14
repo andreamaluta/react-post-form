@@ -19,12 +19,8 @@ const PostForm = () => {
                         </div>
                         <div className="col-12">
                             <div>
-                                <input type="radio" id='privacyPublic' name='privacy' className='form-check-input mx-2' />
-                                <label htmlFor="privacyPublic" className="form-check-label"> Pubblico </label>
-                            </div>
-                            <div>
-                                <input type="radio" id='privacyPrivate' name='privacy' className='form-check-input mx-2' />
-                                <label htmlFor="privacyPrivate" className="form-check-label"> Bozza </label>
+                                <input type="checkbox" id='update' name='update' className='form-check-input mx-2' />
+                                <label htmlFor="updates" className="form-check-labelq">Seleziona se vuoi che sia pubblico</label>
                             </div>
                         </div>
                         <div className="col-12">
