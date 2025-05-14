@@ -11,6 +11,15 @@ const PostForm = () => {
         updates: false
     })
 
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target
+
+        setFormData({
+            ...formData,
+            [name]: type === 'checkbox' ? checked : value
+        })
+    }
+
 
     return (
         <div>
@@ -18,17 +27,17 @@ const PostForm = () => {
                 <div className="row">
                     <form action="" className='border rounded bg-light p-4'>
                         <div className="col-12">
-                            <input type="text" name='author' placeholder='Autore' value={formData.author} className='form-control' />
+                            <input type="text" name='author' placeholder='Autore' value={formData.author} onChange={handleChange} className='form-control' />
                         </div>
                         <div className="col-12">
-                            <input type="text" name='title' placeholder='Titolo' value={formData.title} className='form-control' />
+                            <input type="text" name='title' placeholder='Titolo' value={formData.title} onChange={handleChange} className='form-control' />
                         </div>
                         <div className="col-12">
-                            <textarea name="body" id="" placeholder='Testo del post' value={formData.body} className='form-control'></textarea>
+                            <textarea name="body" id="" placeholder='Testo del post' value={formData.body} onChange={handleChange} className='form-control'></textarea>
                         </div>
                         <div className="col-12">
                             <div>
-                                <input type="checkbox" id='update' name='update' value={formData.updates} className='form-check-input mx-2' />
+                                <input type="checkbox" id='update' name='update' value={formData.updates} onChange={handleChange} className='form-check-input mx-2' />
                                 <label htmlFor="updates" className="form-check-labelq">Seleziona se vuoi che sia pubblico</label>
                             </div>
                         </div>
